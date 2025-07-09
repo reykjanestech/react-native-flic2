@@ -78,6 +78,12 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.13'
 }
 
+configurations.all {
+    resolutionStrategy {
+        force 'com.facebook.react:react-native:0.79.5'
+    }
+}
+
 def configureReactNativePom(def pom) {
     def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
 
