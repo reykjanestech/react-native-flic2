@@ -84,6 +84,13 @@ configurations.all {
     }
 }
 
+// Fix for React Native 0.79.5 variant ambiguity
+configurations.implementation {
+    attributes {
+        attribute(com.android.build.api.attributes.BuildTypeAttr.ATTRIBUTE, project.providers.provider { 'debug' })
+    }
+}
+
 def configureReactNativePom(def pom) {
     def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
 
