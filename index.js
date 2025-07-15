@@ -1,8 +1,6 @@
 // get the native module
 import { NativeModules, NativeEventEmitter, Platform } from 'react-native';
-
-// event emitter
-import EventEmitter from 'react-native/Libraries/EventEmitter/EventEmitter';
+import { EventEmitter } from 'events';
 
 // local imports
 import Flic2Button from './flic2Button.js';
@@ -45,7 +43,7 @@ const BUTTON_TRIGGER_MODE_CLICK                                               = 
  *
  * @version 1.0.0
  */
-class Flic2 extends EventEmitter {
+class Flic2 extends NativeEventEmitter {
 
   /**
    * Constructor.
